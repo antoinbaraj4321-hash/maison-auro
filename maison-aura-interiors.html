@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Aura Interiors</title>
+<style>
+:root{--ink:#111;--muted:#5b5f66;--line:#e5e7eb;--paper:#fff;--sand:#f4f1ec;--stone:#d9d2c5;--oak:#8a6e52;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;font-family:"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px;margin:0 0 20px}
+.eyebrow::before{content:"";width:32px;height:1px;background:var(--ink)}
+h1,h2,h3{font-weight:400;margin:0 0 16px;line-height:1.15}
+h1{font-size:clamp(40px,5.5vw,64px);letter-spacing:-1px}
+h2{font-size:clamp(30px,3.6vw,44px);letter-spacing:-0.5px}
+h3{font-size:22px}
+p{margin:0 0 16px;color:#2b2e33}
+em{font-style:italic}
+.btn{display:inline-block;padding:16px 32px;font-size:15px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;transition:opacity .2s}
+.btn:hover{opacity:.85}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+section{padding:112px 0}
+.tint{background:var(--sand)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#cfc4b2,#8a7a64 60%,#4b4238)}
+.ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(255,255,255,.35),transparent 55%)}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{font-size:15px;letter-spacing:4px}
+.nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0;font-size:14px}
+.nav ul a:hover{text-decoration:underline}
+.nav .btn{padding:12px 22px;font-size:14px}
+
+/* hero */
+.hero{padding:96px 0 112px}
+.hero .grid-2{grid-template-columns:5fr 7fr}
+.hero-text p.lead{max-width:448px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.hero-img{height:513px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);position:relative}
+.tag{position:absolute;right:24px;bottom:24px;background:rgba(255,255,255,.85);border:1px solid var(--line);padding:13px 17px;backdrop-filter:blur(2px);font-size:13px}
+.tag small{display:block;font-size:10px;letter-spacing:1px;color:var(--muted)}
+
+/* philosophy */
+.quote{border-left:2px solid var(--oak);padding:8px 0 8px 24px;font-size:20px;font-style:italic;margin:32px 0 0;color:var(--ink)}
+.stat{display:flex;gap:16px;align-items:flex-end;margin-top:40px}
+.stat b{font-size:56px;font-weight:300;line-height:1}
+.stat span{font-size:14px;color:var(--muted);max-width:200px}
+.phil-img{height:640px}
+
+/* services */
+.head{max-width:640px;margin-bottom:64px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.card{background:#fff;border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;min-height:340px}
+.card .num{font-size:13px;color:var(--oak);letter-spacing:2px;margin-bottom:48px}
+.card p{font-size:15px;flex:1}
+.card a{font-size:14px;border-bottom:1px solid var(--ink);align-self:flex-start;padding-bottom:2px}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.proj .ph{height:360px;margin-bottom:24px}
+.proj .cat{font-size:11px;letter-spacing:2px;color:var(--muted);margin-bottom:8px}
+.proj h3{font-size:20px}
+.proj p{font-size:15px}
+.proj .loc{font-size:13px;color:var(--muted)}
+.more{margin-top:56px;text-align:center}
+
+/* approach */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:48px 64px;margin-top:64px}
+.pillar b{font-size:13px;letter-spacing:2px;color:var(--oak)}
+.pillar h3{margin-top:8px}
+.pillar p{font-size:15px}
+.materials{margin-top:80px;padding:40px;background:#fff;border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.swatches{display:flex;gap:12px}
+.swatches i{flex:1;height:96px;display:block}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);margin-top:56px}
+.step{padding:32px 24px 0 0}
+.step small{font-size:12px;letter-spacing:3px;color:var(--muted)}
+.step h3{margin:12px 0}
+.step p{font-size:15px}
+.step em{display:block;font-size:13px;color:var(--oak);margin-top:16px}
+
+/* testimonials */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.review{background:#fff;padding:40px;border:1px solid var(--line);display:flex;flex-direction:column}
+.review .mark{font-size:48px;line-height:1;color:var(--oak);font-family:Georgia,serif}
+.review p{font-size:17px;font-style:italic;flex:1}
+.who{display:flex;gap:14px;align-items:center;border-top:1px solid var(--line);padding-top:20px}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--stone);display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:18px}
+.who b{font-weight:400;display:block;font-size:15px}
+.who span{font-size:13px;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--ink);color:#fff}
+.contact p,.contact .eyebrow{color:#cfd2d6}
+.contact .eyebrow::before{background:#fff}
+.contact h2{color:#fff}
+.contact .info{margin-top:40px;display:grid;gap:28px;font-size:15px}
+.contact .info small{display:block;letter-spacing:2px;font-size:11px;color:#9aa0a8;margin-bottom:4px}
+form.inquiry{background:#fff;color:var(--ink);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+form.inquiry label{display:flex;flex-direction:column;font-size:13px;gap:6px;color:var(--muted)}
+form.inquiry .full{grid-column:1/-1}
+form.inquiry input,form.inquiry select,form.inquiry textarea{font:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:0}
+form.inquiry textarea{min-height:120px;resize:vertical}
+form.inquiry .btn{width:100%}
+form.inquiry .note{font-size:12px;color:var(--muted);margin:0;text-align:center}
+#thanks{display:none;font-size:15px;color:var(--ink)}
+.cta-band{text-align:center;padding:96px 0;border-bottom:1px solid #2a2d33}
+.cta-band p{color:#cfd2d6;max-width:560px;margin:0 auto 32px}
+.cta-band .btn{background:#fff;color:var(--ink);border-color:#fff}
+.cta-band .btn.ghost{background:transparent;color:#fff;border-color:#4a4f58}
+
+/* footer */
+footer{background:#0b0b0b;color:#9aa0a8;padding:72px 0 32px;font-size:14px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+footer h4{color:#fff;font-weight:400;letter-spacing:2px;font-size:12px;margin:0 0 16px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer a:hover{color:#fff}
+.legal{margin-top:56px;padding-top:24px;border-top:1px solid #222;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px}
+
+@media (max-width:960px){
+  .grid-2,.hero .grid-2,.materials{grid-template-columns:1fr;gap:40px}
+  .cards,.steps,.reviews{grid-template-columns:1fr 1fr}
+  .work{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+  .nav ul{display:none}
+  .foot{grid-template-columns:1fr 1fr}
+  .hero-img,.phil-img{height:380px}
+  section{padding:80px 0}
+}
+@media (max-width:600px){
+  .cards,.steps,.reviews,form.inquiry{grid-template-columns:1fr}
+  .wrap{padding:0 20px}
+  .hero-actions .btn{width:100%;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">MAISON AURA</a>
+    <ul>
+      <li><a href="#philosophy">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#process">Our Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn">Book a Consultation</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap grid-2">
+    <div class="hero-text">
+      <p class="eyebrow">INTERIOR DESIGN STUDIO</p>
+      <h1>Designed for Living.<br><em>Created for You.</em></h1>
+      <p class="lead">We transform everyday spaces into extraordinary experiences through thoughtful design, timeless aesthetics, and a personal touch.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn">Explore Our Projects</a>
+        <a href="#contact" class="btn ghost">Book a Consultation</a>
+      </div>
+      <p><em>Thoughtful design. Meaningful spaces. Lasting impressions.</em></p>
+    </div>
+    <div class="hero-img ph" role="img" aria-label="Belvedere Pavilion interior">
+      <div class="tag"><small>RESIDENCE Nº 08</small>Belvedere Pavilion, Ojai</div>
+    </div>
+  </div>
+</section>
+
+<section id="philosophy" class="tint">
+  <div class="wrap grid-2">
+    <div>
+      <p class="eyebrow">OUR PHILOSOPHY</p>
+      <h2>Design That Goes Beyond Beautiful.</h2>
+      <p>At Maison Aura Interiors, we believe a beautiful space should do more than look good — it should feel right.</p>
+      <p>Our approach combines creativity, functionality, and attention to detail to create interiors that are uniquely yours. Every project begins with understanding how you live, what you love, and what makes a space feel like home.</p>
+      <blockquote class="quote">“Thoughtful design. Meaningful spaces. Lasting impressions.”</blockquote>
+      <div style="margin-top:40px"><a href="#process" class="btn">Discover Our Approach</a></div>
+      <div class="stat"><b>12+</b><span>Years crafting bespoke sanctuaries rooted in light, natural stone, and honest craftsmanship.</span></div>
+    </div>
+    <div class="phil-img ph" role="img" aria-label="Studio interior"></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">WHAT WE DO</p>
+      <h2>Considered Design for Every Space.</h2>
+      <p>From the first sketch to the finishing touches, we create interiors that balance beauty, comfort, and everyday functionality.</p>
+    </div>
+    <div class="cards">
+      <article class="card"><div class="num">01</div><h3>Residential Interiors</h3><p>Thoughtfully designed homes that reflect your personality, lifestyle, and the way you love to live.</p><a href="#projects">Explore Residential Design</a></article>
+      <article class="card"><div class="num">02</div><h3>Commercial Interiors</h3><p>Purposeful, inspiring workspaces and commercial environments that bring your brand and vision to life.</p><a href="#projects">Explore Commercial Design</a></article>
+      <article class="card"><div class="num">03</div><h3>Modular Kitchens</h3><p>Beautifully organised kitchens with smart storage, considered layouts, and timeless finishes.</p><a href="#projects">Explore Kitchen Design</a></article>
+      <article class="card"><div class="num">04</div><h3>Bedroom Design</h3><p>Restful personal spaces designed with calming colours, layered textures, and thoughtful lighting.</p><a href="#projects">Explore Bedroom Design</a></article>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="tint">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">SELECTED WORK</p>
+      <h2>Spaces with a Story to Tell.</h2>
+      <p>Every project begins with a vision and comes to life through thoughtful details, considered materials, and a clear design philosophy.</p>
+    </div>
+    <div class="work">
+      <article class="proj">
+        <div class="ph"></div>
+        <p class="cat">RESIDENTIAL · CONTEMPORARY MINIMALISM</p>
+        <h3>Project 01 — The Serenity Residence</h3>
+        <p>A peaceful urban home defined by natural wood, soft neutral tones, and light-filled living spaces.</p>
+        <p class="loc">Location: Kyoto Suburban Edge</p>
+      </article>
+      <article class="proj">
+        <div class="ph"></div>
+        <p class="cat">FULL HOME · WARM CONTEMPORARY</p>
+        <h3>Project 02 — The Earth &amp; Oak Home</h3>
+        <p>A welcoming family home that combines earthy colours, natural textures, and carefully selected statement furniture.</p>
+        <p class="loc">Full home renovation</p>
+      </article>
+      <article class="proj">
+        <div class="ph"></div>
+        <p class="cat">KITCHEN · MODERN FUNCTIONALITY</p>
+        <h3>Project 03 — The Urban Kitchen</h3>
+        <p>A practical yet sophisticated kitchen with clean lines, smart storage, and beautifully understated finishes.</p>
+        <p class="loc">Modular kitchen</p>
+      </article>
+    </div>
+    <div class="more"><a href="#projects" class="btn ghost">View All Projects</a></div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">THE MAISON AURA APPROACH</p>
+      <h2>Beautifully Considered. Thoughtfully Created.</h2>
+      <p>We believe the best interiors are not simply seen — they are experienced. Every material, proportion, colour, and detail has a purpose.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><b>01</b><h3>Personal by Design</h3><p>Every project begins with your lifestyle, preferences, and vision.</p></div>
+      <div class="pillar"><b>02</b><h3>Beauty Meets Function</h3><p>We balance beautiful aesthetics with practical everyday living.</p></div>
+      <div class="pillar"><b>03</b><h3>Details Matter</h3><p>Materials, textures, lighting, and finishes are considered as part of the whole.</p></div>
+      <div class="pillar"><b>04</b><h3>Made to Last</h3><p>We aim for timeless design choices that continue to feel right over time.</p></div>
+    </div>
+    <div class="materials">
+      <div>
+        <p class="eyebrow">Curated Natural Materials</p>
+        <h3>Aura Atelier Material Standard</h3>
+        <p>Travertine, FSC-Certified European Oak, Unlacquered Brass, and Hand-Spun Linen.</p>
+      </div>
+      <div class="swatches" aria-hidden="true">
+        <i style="background:#d8cdbb"></i><i style="background:#a7865f"></i><i style="background:#b8a27a"></i><i style="background:#e9e4da"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="tint">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">FROM VISION TO REALITY</p>
+      <h2>A Thoughtful Journey, Every Step of the Way.</h2>
+      <p>A clear, collaborative process makes creating your space feel exciting, considered, and manageable.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><small>STEP 01</small><h3>Discover</h3><p>We start by understanding your space, lifestyle, preferences, requirements, and budget.</p><em>Phase: Intake &amp; Spatial Audit</em></div>
+      <div class="step"><small>STEP 02</small><h3>Design</h3><p>We develop the design concept, layouts, colour palette, materials, and visual direction.</p><em>Phase: Moodboards &amp; Spatial CAD</em></div>
+      <div class="step"><small>STEP 03</small><h3>Refine</h3><p>We review the proposed design together and refine the details to align with your needs.</p><em>Phase: Samples &amp; 3D Visualisation</em></div>
+      <div class="step"><small>STEP 04</small><h3>Create</h3><p>Once the design is approved, we coordinate the agreed implementation and finishing details.</p><em>Phase: Build Oversight &amp; Handover</em></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">CLIENT EXPERIENCES</p>
+      <h2>Spaces They Love Coming Home To.</h2>
+    </div>
+    <div class="reviews">
+      <figure class="review" style="margin:0">
+        <div class="mark">“</div>
+        <p>The team understood our vision perfectly. Our home feels more spacious, warm, and beautiful than we imagined.</p>
+        <figcaption class="who"><div class="avatar">H</div><div><b>A Happy Homeowner</b><span>The Serenity Residence</span></div></figcaption>
+      </figure>
+      <figure class="review" style="margin:0">
+        <div class="mark">“</div>
+        <p>Every detail feels intentional. The design is elegant, practical, and truly reflects our personality.</p>
+        <figcaption class="who"><div class="avatar">R</div><div><b>Residential Client</b><span>The Earth &amp; Oak Home</span></div></figcaption>
+      </figure>
+      <figure class="review" style="margin:0">
+        <div class="mark">“</div>
+        <p>We wanted a kitchen that was beautiful but practical, and the final design brought those ideas together wonderfully.</p>
+        <figcaption class="who"><div class="avatar">K</div><div><b>Kitchen Design Client</b><span>The Urban Kitchen</span></div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center;color:#9aa0a8">YOUR SPACE. YOUR STORY.</p>
+    <h2 style="color:#fff">Let’s Begin.</h2>
+    <p>Whether you’re planning a new home, refreshing a favourite room, or reimagining your workspace, we’d love to hear your ideas.</p>
+    <a href="#contact" class="btn">Start Your Project</a>
+    <a href="#contact" class="btn ghost" style="margin-left:12px">Talk to Our Studio</a>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap grid-2">
+    <div>
+      <p class="eyebrow">LET’S TALK ABOUT YOUR SPACE</p>
+      <h2>Tell Us What You’re Imagining.</h2>
+      <p>Share a few details about your project, and let’s start exploring the possibilities.</p>
+      <div class="info">
+        <div><small>STUDIO LOCATION</small>Aura Design House, 42 Sanctuary Boulevard</div>
+        <div><small>INQUIRIES</small><a href="mailto:hello@maisonaura.com">hello@maisonaura.com</a></div>
+        <div><small>STUDIO HOURS</small>Monday – Friday: 9am – 6pm (By appointment)</div>
+      </div>
+    </div>
+    <form class="inquiry" id="inquiry">
+      <label>Full Name *<input required placeholder="e.g. Clara Montgomery" name="name"></label>
+      <label>Email Address *<input required type="email" placeholder="clara@domain.com" name="email"></label>
+      <label>Phone Number<input type="tel" placeholder="+1 (555) 019-2834" name="phone"></label>
+      <label>Project Type<select name="type"><option>Apartment</option><option>Villa / House</option><option>Commercial</option><option>Kitchen</option><option>Bedroom</option></select></label>
+      <label>Project Location<input placeholder="City, Country" name="location"></label>
+      <label>Approximate Budget<select name="budget"><option>$100k – $250k</option><option>$250k – $500k</option><option>$500k+</option></select></label>
+      <label class="full">Expected Timeline<select name="timeline"><option>3–6 months</option><option>6–12 months</option><option>12+ months</option></select></label>
+      <label class="full">Tell Us About Your Vision<textarea name="vision" placeholder="Tell us about your spatial needs, architectural aesthetics, lifestyle rhythms, and inspirations..."></textarea></label>
+      <div class="full"><button class="btn" type="submit">Send Your Inquiry</button></div>
+      <p class="note full">We’ll use your details to respond to your project inquiry.</p>
+      <p id="thanks" class="full">Thank you. Our studio will be in touch shortly.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h4>MAISON AURA INTERIORS</h4>
+        <p style="color:#cfd2d6;font-size:20px;font-style:italic;max-width:320px">Spaces That Feel Like You.</p>
+        <p>Thoughtfully designed interiors for inspired living, balancing natural materials with timeless architectural harmony.</p>
+      </div>
+      <div>
+        <h4>NAVIGATION</h4>
+        <ul><li><a href="#top">Home</a></li><li><a href="#philosophy">About</a></li><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#process">Our Process</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>CONNECT</h4>
+        <ul><li>Phone: +91 XXXXX XXXXX</li><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">LinkedIn</a></li></ul>
+      </div>
+      <div>
+        <h4>BOOK</h4>
+        <ul><li><a href="#contact">Book a Consultation</a></li><li><a href="#contact">Start Your Project</a></li></ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Maison Aura Interiors. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('inquiry').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('thanks').style.display = 'block';
+  this.reset();
+});
+</script>
+</body>
+</html>
